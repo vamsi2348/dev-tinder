@@ -27,7 +27,8 @@ const app = express();
 // });
 
 //app.get
-app.get('/user',(req,res) => {
+app.get('/user/:userId',(req,res) => {
+    console.log(req.params);
     res.send({firstName:"raju","lastName": "yadav"})
 })
 

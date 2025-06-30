@@ -1,0 +1,26 @@
+{
+  "name": "dev-tinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vamsi2348/dev-tinder.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vamsi2348/dev-tinder/issues"
+  },
+  "homepage": "https://github.com/vamsi2348/dev-tinder#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

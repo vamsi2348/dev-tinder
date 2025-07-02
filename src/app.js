@@ -27,17 +27,35 @@ const app = express();
 // });
 
 //app.get
-app.get('/user/:userId',(req,res) => {
-    console.log(req.params);
-    res.send({firstName:"raju","lastName": "yadav"})
-})
+// app.get('/user/:userId',(req,res) => {
+//     console.log(req.params);
+//     res.send({firstName:"raju","lastName": "yadav"})
+// })
 
-app.post('/user',(req,res) => {
-    res.send("Updated user in DB sucessfully")
-})
+// app.post('/user',(req,res) => {
+//     res.send("Updated user in DB sucessfully")
+// })
 
-app.post('/delete',(req,res) => {
-    res.send("Deleted user sucessfully")
+// app.post('/delete',(req,res) => {
+//     res.send("Deleted user sucessfully")
+// })
+
+
+//multi Route handlers
+app.use("/user",(req,res,next)=> {
+    //Route handler
+    console.log("Handler1");
+    next();
+    // res.send("First");
+},(req,res) => {
+    console.log("Handler2");
+    res.send("Second");
+},(req,res) => {
+    console.log("Handler3");
+    res.send("third");
+},(req,res) => {
+    console.log("Handler4");
+    res.send("fouth");
 })
 
 app.listen(3000,() => {

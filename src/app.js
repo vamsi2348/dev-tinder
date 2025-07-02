@@ -105,11 +105,37 @@ const { adminAuth } = require("./middlewares/adminAuth")
 
 //type 2
 // write middle ware in a separate file and export it and use it(Industry way)
-app.use('/admin', adminAuth);
+// app.use('/admin', adminAuth);
 
-app.use('/admin/getAllData',(req,res,next)=>{
-    res.send("Sent all data");
-});
+// app.use('/admin/getAllData',(req,res,next)=>{
+//     res.send("Sent all data");
+// });
+
+
+
+// ----------------------------------------------------------------------------Error handling---------------------------------------------------------------------
+// app.use((err,req,res,next)=> {
+//     if(err){
+//         res.status(501).send("Something went wrong!!!!!!!!!!!!")
+//     }
+// })
+
+app.get("/getUserData",(req,res,next)=> {
+    
+    next();
+    throw new Error("skhjdfbgsdjkhfsk");
+})
+
+app.get("/getUserData",(req,res)=> {
+    console.log("Second route after error");
+    res.send("hi from second handler")
+})
+
+app.use("/",(err,req,res,next)=> {
+    if(err){
+        res.status(501).send("Something went wrong!!!!!!!!!!!!")
+    }
+})
 
 app.listen(3000,() => {
     console.log("Listening on port 3000");
